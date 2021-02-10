@@ -15,7 +15,7 @@ Oui je peux changer le nom du fichier Makefile.
 ```
 #### Question 4
 ```
-La commande qui permet de créer l'exécutable : make nomExecutable 
+La commande qui permet de créer l'exécutable : make nomExecutable. 
 ```
 #### Question 5
 ```
