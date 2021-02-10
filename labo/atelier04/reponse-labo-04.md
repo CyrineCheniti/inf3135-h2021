@@ -15,13 +15,18 @@ Oui je peux changer le nom du fichier Makefile.
 ```
 #### Question 4
 ```
-La commande qui permet de créer l'exécutable : make nomExecutable. 
+La commande qui permet de créer l'exécutable : make progA. 
 ```
 #### Question 5
 ```
-La commande qui permet de supprimer les fichier : make clean . 
+La commande qui permet de supprimer les fichier : make clean. 
 ```
 #### Question 6
 ```
 La cible par défaut du Makefile c'est la première cible.
 ``` 
+#### Question 7
+```
+Non ce n'est pas possible de retourner un code de retour négatif.
+```
+
