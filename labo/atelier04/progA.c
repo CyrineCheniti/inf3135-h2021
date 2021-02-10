@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int estTrie(int _a[],unsigned long _size){
+int estTrie(int _a[], unsigned long _size){
      for (int i = 0; i < _size; ++i){
       if(_a[_size-1] < _a[_size-2])
          return 20;
