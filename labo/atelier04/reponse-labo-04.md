@@ -23,5 +23,5 @@ La commande qui permet de supprimer les fichier : make clean .
 ```
 #### Question 6
 ```
-La cible par défaut du Makefile c'est le premier cible.
+La cible par défaut du Makefile c'est la première cible.
 ``` 
