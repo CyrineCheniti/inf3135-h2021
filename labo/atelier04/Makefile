@@ -7,7 +7,7 @@ progB: progB.o
 	gcc -std=c11 -Wall -pedantic -c  progB.c
 	gcc -std=c11 -Wall -pedantic -o progB progB.o
    
-progC: progC.o
+progC: progC.c
 	gcc  -std=c11 -Wall -pedantic -o progC progC.c
 
 clean:
