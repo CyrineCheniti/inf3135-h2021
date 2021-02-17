@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 //fonction utile pour exempleC
-static void reverser(const char *str, size_t taille )
+void reverser(const char *str, size_t taille )
 {
   const char *pt=str+taille;
   while (pt>str)
@@ -21,12 +21,11 @@ int main( int argc , char **argv) {
   }
   printf("\n\n");
   //exempleC
-  for (int i=1; i<argc; i++)
-   {
+  for (int i=1; i<argc; i++){
        if(i !=1)
         putchar(' ');
        reverser(argv[i], strlen(argv[i]));
-    }
-    putchar('\n');
-    return 0;
+  }
+  putchar('\n');
+  return 0;
 }
