@@ -1,9 +1,0 @@
-# Fichiers C
-*.o
-*.out
-
-# Fichiers Vim
-*.swp
-
-# Fichiers temporaires
-*.tmp
