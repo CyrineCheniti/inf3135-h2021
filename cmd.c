@@ -28,6 +28,5 @@ int main( int argc , char **argv) {
        reverser(argv[i], strlen(argv[i]));
     }
     putchar('\n');
-  //exempleB
     return 0;
 }
