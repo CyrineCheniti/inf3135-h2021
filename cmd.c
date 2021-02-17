@@ -23,9 +23,9 @@ int main( int argc , char **argv) {
   //exempleC
   for (int i=1; i<argc; i++){
        if(i !=1)
-        putchar(' ');
+        printf(" ");
        reverser(argv[i], strlen(argv[i]));
   }
-  putchar('\n');
+  printf("\n");
   return 0;
 }
