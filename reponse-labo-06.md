@@ -2,16 +2,15 @@
 ## Exercice 1
 #### Question 1
 ```
-Le type qui correspond au nombre entier naturel en C: int.
-
+Le type qui correspond au nombre entier naturel en C: int
 ```
 #### Question 2a
 ```
-./cmdline -c MART01010199 -d DECR 
+./cmdline -c MART01010199 -d DEC 
 ```
 #### Question 2b
 ```
-./cmdline -c -d DECR 
+./cmdline -c -d DEC
 ```
 #### Question 2c
 ```
@@ -23,7 +22,7 @@ Le type qui correspond au nombre entier naturel en C: int.
 ```
 #### Question 3
 ```
-Avec la commande echo$?
+Avec la commande echo $?
 ```
 #### Question 4
 ```
