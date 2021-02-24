@@ -3,12 +3,29 @@
 #include <stdbool.h>
 #include <ctype.h>
 
-int cmdline (char input);
+int cmdline(char input){
+   int codeRetour=0;
+   switch(input){
+    case 'd': 
+    codeRetour =3;
+    break;
+    case 'c':
+    codeRetour=1;
+    break;
+    case 'v':
+    codeRetour =2;
+    break;
+    default:
+    break;
+   }
+   return codeRetour;
+}
+
 bool numeric(char *str){
   while (*str) {
         if (isdigit(*str++) == 0) return true;
-    }
-    return false;
+  }
+   return false;
 }
 
 int main(int argc, char *argv[]){
@@ -23,16 +40,13 @@ int main(int argc, char *argv[]){
         } else if (strcmp(argv[i],"-d")==0){
               if (strcmp(argv[i+1],"INC")!=0 &&  strcmp(argv[i+1],"DEC")!=0){
                     reslt=cmdline('d');
-                    
               }
         } else if (strcmp(argv[i],"-v")==0){
              if(numeric(argv[i+1])){
                    reslt=cmdline('v');
-                   
              } 
         } else if (i==argc-1 && check==false){
-                   reslt=cmdline('c');
-                   
+                   reslt=cmdline('c');                   
         }
         
      }
@@ -40,21 +54,4 @@ int main(int argc, char *argv[]){
      return reslt;
        
 }
-int cmdline(char input){
-   int codeRetour=0;
-   switch(input){
-    case 'd': 
-    codeRetour =3;
-    break;
-    case 'c':
-    codeRetour=1;
-    break;
-   case 'v':
-   codeRetour =2;
-   break;
-   default:
-    break;
-   }
-   return codeRetour;
 
-}
