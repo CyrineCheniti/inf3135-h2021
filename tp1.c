@@ -70,9 +70,9 @@ struct Reponse recuperer_json(char indice[]){
  
  for(int i=0;i<j;i++) {
    if(strstr(tab_rep[i],"\"fiftyTwoWeekLow\":")!=0)
-       { ftwl = (long int)(conv_float(tab_rep[i])*1000);          
+       { ftwl = (long int)((conv_float(tab_rep[i]))*1000);
    } else if(strstr(tab_rep[i],"\"fiftyTwoWeekHigh\":")!=0)
-       { ftwh = (long int)(conv_float(tab_rep[i])*1000);
+       { ftwh = (long int)((conv_float(tab_rep[i]))*1000);
    } else if(strstr(tab_rep[i],"\"regularMarketPrice\":")!=0)
        { rmp = conv_float(tab_rep[i]); 
    } else if(strstr(tab_rep[i],"\"trailingAnnualDividendYield\":")!=0)
@@ -80,7 +80,7 @@ struct Reponse recuperer_json(char indice[]){
    }
  }
  r.indice =indice;
- float cx = 1- ((float)(ftwh-(long int)rmp*1000)/(float)(ftwh-ftwl)); 
+ float cx = 1- ((float)(ftwh-(long int)(rmp*1000))/(float)(ftwh-ftwl)); 
  if (cx<0.25){
    r.classement="C-1";
 
@@ -110,7 +110,6 @@ struct Reponse recuperer_json(char indice[]){
     printf ("%s\t",r.classe_dividend);
     printf ("%5.2f\t",r.prix_marche);
     printf ("%5.2f%%\n",r.dividend);
-
  }
  
 int main(void) {
@@ -129,5 +128,6 @@ int main(void) {
         result = recuperer_json(nom[j]);
         afficher(result);
    }
+
    return 0;
 }
