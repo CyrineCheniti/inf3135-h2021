@@ -80,8 +80,7 @@ struct Reponse recuperer_json(char indice[]){
    }
  }
  r.indice =indice;
- float cx = 1- ((float)(ftwh-(long int)rmp*1000)/(float)(ftwh-ftwl));
- printf("%f", cx); 
+ float cx = 1- ((float)(ftwh-(long int)rmp*1000)/(float)(ftwh-ftwl)); 
  if (cx<0.25){
    r.classement="C-1";
 
@@ -110,7 +109,7 @@ struct Reponse recuperer_json(char indice[]){
     printf ("%s\t",r.classement);
     printf ("%s\t",r.classe_dividend);
     printf ("%5.2f\t",r.prix_marche);
-    printf ("%.2f%%\n",r.dividend);
+    printf ("%5.2f%%\n",r.dividend);
 
  }
  
