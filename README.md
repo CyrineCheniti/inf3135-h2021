@@ -1,0 +1,35 @@
+   # Travail pratique 1
+
+   ## Auteur
+
+   | nom colonne  | valeur |
+   | ------------- |:-------------:|
+   | Identité      | Cyrine Cheniti     |
+   | CodeMS      | ke491037     | 
+   | CP      | CHEC17629706     |
+
+   ## Votre fierté
+   ```
+   Pour faire fonctionner mon projet il faut taper les commandes make indices, make quote, make et puis 
+   tu fais entrer les indices.  
+   ```
+
+   ## Difficultés rencontrées
+   
+   ```
+   la plus grande difficulté c'est le fait de comprendre le Tp.
+   Faire le calcule de cx sans utiliser le float.
+   ```
+
+   ## Listes Exigences
+   
+   - [x] getQuote.sh fonctionne 
+   - [x] Makefile fonctionne
+   - [x] tp1.c compile 
+   - [x] .gitignore fonctionne
+
+   ## Statut et auto-évaluation
+
+   ```
+   Le projet complété.
+   ```
