@@ -100,8 +100,8 @@ struct Reponse recuperer_json(char indice[]){
    r.classe_dividend="DIV-3";
  }
  // Evite l'arrondi
- float div=floorf(tady * 100) / 100;
- r.dividend=div;
+ float divi=floorf(tady * 100) / 100;
+ r.dividend=divi;
  float pm= floorf(rmp * 100) / 100;
  r.prix_marche=pm;
  
