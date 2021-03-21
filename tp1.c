@@ -77,7 +77,7 @@ struct Reponse recuperer_json(char indice[]){
    } else if(strstr(tab_rep[i],"\"regularMarketPrice\":")!=0)
        { rmp = conv_float(tab_rep[i]); 
    } else if(strstr(tab_rep[i],"\"trailingAnnualDividendYield\":")!=0)
-       { tady = conv_float(tab_rep[i]);
+       { tady = conv_float(tab_rep[i])*100;
    }
  }
  r.indice =indice;
@@ -92,15 +92,15 @@ struct Reponse recuperer_json(char indice[]){
    r.classement="C-4";
  }
  
- if (tady<0.03){
+ if (tady<3){
    r.classe_dividend="DIV-1";
- } else if (tady<0.06){
+ } else if (tady<6){
    r.classe_dividend="DIV-2";
  } else {
    r.classe_dividend="DIV-3";
  }
  // Evite l'arrondi
- float div = floorf(tady * 100) / 100;
+ float div=floorf(tady * 100) / 100;
  r.dividend=div;
  float pm= floorf(rmp * 100) / 100;
  r.prix_marche=pm;
