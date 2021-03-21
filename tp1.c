@@ -83,7 +83,6 @@ struct Reponse recuperer_json(char indice[]){
  float cx = 1- ((float)(ftwh-(long int)(rmp*1000))/(float)(ftwh-ftwl)); 
  if (cx<0.25){
    r.classement="C-1";
-
  } else if (cx<0.5){
    r.classement="C-2";
  } else if( cx<0.75){
