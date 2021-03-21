@@ -9,8 +9,6 @@ int argc est le nombre de paramètres effectivement passé au programme et
 char * argv [] est un tableau de chaine de caractères contenant les paramètres
 
 effectivement passés au programme.
-
-
 ```
 #### Question 2
 ```
@@ -53,5 +51,5 @@ git checkout change de branche ou restaure les fichiers de l'arborescence de tra
 ```
 #### Question 5
 ```
-git help
+git help.
 ```
