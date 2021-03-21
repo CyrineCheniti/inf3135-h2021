@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 struct Reponse{
     char *indice;
@@ -98,8 +99,11 @@ struct Reponse recuperer_json(char indice[]){
  } else {
    r.classe_dividend="DIV-3";
  }
- r.dividend=tady;
- r.prix_marche=rmp;
+ // Evite l'arrondi
+ float div = floorf(tady * 100) / 100;
+ r.dividend=div;
+ float pm= floorf(rmp * 100) / 100;
+ r.prix_marche=pm;
  
  return r;
 }
@@ -107,8 +111,8 @@ struct Reponse recuperer_json(char indice[]){
     printf ("%s\t",r.indice);
     printf ("%s\t",r.classement);
     printf ("%s\t",r.classe_dividend);
-    printf ("%5.2f\t",r.prix_marche);
-    printf ("%5.2f%%\n",r.dividend);
+    printf ("%.2f\t",r.prix_marche);
+    printf ("%.2f%%\n",r.dividend);
  }
  
 int main(void) {
