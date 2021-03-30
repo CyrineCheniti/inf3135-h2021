@@ -1,18 +1,28 @@
 #include <stdio.h>
 
-double racineCarreEnitiere(double x){
-    double i=0;
-    double rc=0;
-    do {
-       rc=i*i;
-       i+=1;
-    } while (rc<x);
-    if (rc==x){
-     i=i-1;
-    } else {
-     i=i-2;
-    }
-    return i;
+double racineCarre(double x){
+    double a,b,m,n;
+  if(x==0.0) {
+     return 0.0;
+  } else {
+     m=1.0;
+     n=x;
+     while(n>=2.0) {
+        n=0.25*n;
+        m=2.0*m;
+     }
+     while(n<0.5) {
+        n=4.0*n;
+        m=0.5*m;
+     }
+     a=n;
+     b=1.0-n;
+     do {
+        a=a*(1.0+0.5*b);
+        b=0.25*(3.0+b)*b*b;
+     } while(b>=1.0E-15);
+     return a*m;
+  }
 }
 
 struct Point_s { // Un point en 2D
@@ -34,30 +44,27 @@ void initialiserSegment(struct Segment_s *segment, double x1, double y1, double 
     segment->p1.y=y1;
     segment->p2.x=x2;
     segment->p2.y=y2;
-
 }
 
 double longueurSegment(const struct Segment_s *segment){
    double l;
    double dx=segment->p2.x-segment->p1.x;
    double dy=segment->p2.y-segment->p2.y;
-   l=racineCarreEnitiere(dx*dx+dy*dy); 
+   l=racineCarre(dx*dx+dy*dy); 
    return l;
 }
 
- void initialiserTriangle(struct Triangle_s *triangle, double x1, double y1, double x2, double y2, double x3, double y3){
+void initialiserTriangle(struct Triangle_s *triangle, double x1, double y1, double x2, double y2, double x3, double y3){
      triangle->points[0].x=x1;
      triangle->points[0].y=y1;
      triangle->points[1].x=x2;
      triangle->points[1].y=y2;
      triangle->points[2].x=x3;
      triangle->points[2].y=y3;
-
- }
+}
 
 double perimetreTriangle(const struct Triangle_s *triangle) {
-     double p=0;
-     
+     double p=0;     
      struct Segment_s seg1={triangle->points[0],triangle->points[1]};
      struct Segment_s seg2={triangle->points[1],triangle->points[2]};
      struct Segment_s seg3={triangle->points[2],triangle->points[0]}; 

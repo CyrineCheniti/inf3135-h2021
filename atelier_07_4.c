@@ -30,11 +30,11 @@ Nombre_t max(Nombre_t a, Nombre_t b){
       case 1:return (a.valeur.d<b.valeur.f)? b:a;
       case 2:return (a.valeur.d<b.valeur.d)? b:a;
       }
-  }
+ }
 }
 int main (){
-  Nombre_t a= {INT, 25};
-  Nombre_t b= {INT, 22};
+  Nombre_t a= {INT, 10};
+  Nombre_t b= {INT, 80};
   Nombre_t c=max(a,b);
   printf("%d\n", c.valeur.i);   
   return 0; 
