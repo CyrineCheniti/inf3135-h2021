@@ -1,12 +1,11 @@
+
+data/
 # Fichiers C
+# Fichiers temporaires
+# Fichiers Vim
+*.guy
 *.o
 *.out
-
-# Fichiers Vim
-*.swp
-
-# Fichiers temporaires
-*.tmp
-
 # Répertoire à ignorer
-data/
+*.swp
+*.tmp
