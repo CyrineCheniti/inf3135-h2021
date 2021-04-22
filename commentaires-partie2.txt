@@ -2,9 +2,12 @@
 *** compilation ***
  
 **** differences ****
+1
+1
+2
  
 **** script de correction ****
-echo -e "**** debut de la correction ****" >> ../inf3135-h2021/commentaires.txt ; echo $? >> resultat.guy
+V=`date` ; echo -e "**** debut de la correction : $V ****" >> ../inf3135-h2021/commentaires.txt ; echo $? >> resultat.guy
 V=`grep 'unistd' *.[ch] | wc -l` ; test $V == 0 ; echo $? >> resultat.guy
 test -f tp1.c -a -f .gitignore -a -f cp.txt -a -f Makefile ; echo $? >> resultat.guy
 test -f getQuote.sh ; echo $? >> resultat.guy
@@ -33,9 +36,10 @@ V=`head -n 3 tp1-diff.etu | tail -n 1` ; test $V -eq 0 ; echo $? >> resultat.guy
 file tp1.c | grep 'C source, ASCII text' ; V1=$? ; file tp1.c | grep 'C source, ASCII text,' ; V2=$? ; test $V1 == 0 -a $V2 == 1 ; echo $? >> resultat.guy
 test -s ./.github/workflows/tp1.yml ; echo $? >> resultat.guy
 V=`grep 'data/' .gitignore | wc -l` ; test $V == 1 ; echo $? >> resultat.guy
-echo "*.guy" >> .gitignore ; date > version.txt ; sort -u -o .gitignore .gitignore ; git add version.txt .gitignore && git commit -m "consulter les .etu" && git push ; echo $? >> resultat.guy
+echo "*.guy" >> .gitignore ; date > version.txt ; sort -u -o .gitignore .gitignore ; git add version.txt .gitignore tp1-0*.etu && git commit -m "bravo, consulter les .etu si present..." && git push ; echo $? >> resultat.guy
+cp note.guy resultats-des-tests.txt ; git add resultats-des-tests.txt ; git commit -m "les test" ; git push ; echo $? >> resultat.guy
 echo -e "*** compilation ***" >> ../inf3135-h2021/commentaires-partie2.txt ; cat compilation*.guy >> ../inf3135-h2021/commentaires-partie2.txt ; echo " " >> ../inf3135-h2021/commentaires-partie2.txt ; echo $? >> resultat.guy
-echo -e "**** differences ****" >> ../inf3135-h2021/commentaires-partie2.txt ; cat tp2-diff.etu >> ../inf3135-h2021/commentaires-partie2.txt ; echo " " >> ../inf3135-h2021/commentaires-partie2.txt ; echo $? >> resultat.guy
+echo -e "**** differences ****" >> ../inf3135-h2021/commentaires-partie2.txt ; cat tp1-diff.etu >> ../inf3135-h2021/commentaires-partie2.txt ; echo " " >> ../inf3135-h2021/commentaires-partie2.txt ; echo $? >> resultat.guy
 echo -e "**** script de correction ****" >> ../inf3135-h2021/commentaires-partie2.txt ; cat execution.guy >> ../inf3135-h2021/commentaires-partie2.txt ; echo " " >> ../inf3135-h2021/commentaires-partie2.txt ; echo $? >> resultat.guy
 echo -e "Correction fin." >> ../inf3135-h2021/commentaires-partie2.txt ; echo $? >> resultat.guy
  
