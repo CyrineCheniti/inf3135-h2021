@@ -1,0 +1,20 @@
+name: tp2c
+on:
+  push:
+    branches:
+      - tp2
+    tags:
+      - v1
+    # file paths to consider in the event. Optional; defaults to all.
+    paths:
+      - 'tp2.c' 
+
+jobs:
+  job_1:
+    name: job principale
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: compilation
+      run: |
+        make>>complitation.md
