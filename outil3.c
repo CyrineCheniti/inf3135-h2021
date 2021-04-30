@@ -123,7 +123,7 @@ void afficherRep(struct Reponse r){
                           printf ("%s\t",r.indice);
                           printf ("%s\t",r.classement);
                           printf ("%s\t",r.classe_dividend);
-                          printf ("%.2f\t",r.prix_marche);
+                          printf ("%7.2f\t",r.prix_marche);
                           printf ("%.2f%%\n",r.dividend); 
 }
  void afficher(struct Reponse r, struct stat *s, char *rep[]){
