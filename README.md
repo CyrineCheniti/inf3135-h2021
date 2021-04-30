@@ -1,4 +1,4 @@
-[![Tp2]]
+[![Actions Status]
 (http://github/CyrineCheniti/inf3135-h2021/actions/worflows/tp2c.yml/badge.svg?branch=tp2)]
 (http://github/CyrineCheniti/inf3135-h2021/actions/worflows/tp2c.yml)   
 # Travail pratique 1
