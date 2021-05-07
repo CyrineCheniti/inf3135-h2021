@@ -18,4 +18,4 @@ jobs:
     - name: execution  
       run: |
         make
-        cat data/indices.txt | ./tp2 >> execution.md
+        cat data/indices.txt | ./tp2s > execution.md
