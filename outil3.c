@@ -1,8 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <math.h>
-#include "outil3.h"
 
 int estNum(char c){
     if(c<='9' && c>='0')
