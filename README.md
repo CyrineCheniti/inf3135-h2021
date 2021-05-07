@@ -12,26 +12,26 @@
 
    ## Votre fierté
    ```
-   Pour faire fonctionner mon projet il faut taper les commandes make indices, make quote, make et puis 
+   Pour faire fonctionner mon projet il faut taper les commandes make indices, make quote, make tp2s et puis 
    vous faites entrer les indices.  
    ```
 
    ## Difficultés rencontrées
    
    ```
-   - la plus grande difficulté c'est le fait de comprendre le Tp.
-   - Faire le calcul de cx sans utiliser le float.
+   - L'éxecutable shared je n'ai pas arrivé à le faire fonctionner.
    ```
 
    ## Listes Exigences
    
    - [x] getQuote.sh fonctionne 
-   - [x] Makefile fonctionne
-   - [x] tp1.c compile et retourne le bon résultat 
+   - [x] Makefile fonctionne sauf pour l'éxecutable shared
+   - [x] tp2.c compile et retourne le bon résultat 
    - [x] .gitignore fonctionne
+   - [x] tp2c.yml et tp2t.yml fonctionnent
 
    ## Statut et auto-évaluation
 
    ```
-   Le projet complété.
+   Le projet est complété sans l'éxecutable shared.
    ```
