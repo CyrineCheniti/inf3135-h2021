@@ -12,13 +12,13 @@ int main(int nbr, char *args[]) {
    int i=0;
    struct Reponse result;
    char *rep[4]={"C-5", "DIV-5", "N", "N"};
-   struct stat s;   
-   while(fgets(indice, sizeof(indice), stdin) != NULL) {
+   struct stat s;  
+   while(fgets(indice, sizeof(indice), stdin) != NULL)
+ {
          int l = strlen(indice);
          memcpy(nom[i],indice,l-1);
          i++;
-   }
-   
+   }   
    int c=cmdline(nbr,args, rep);
    if (c==1){
    for (int j = 0; j < i; j++) {
@@ -27,7 +27,6 @@ int main(int nbr, char *args[]) {
 	afficher(result,&s,rep);
    }
    afficherStat(s, rep);
-  
   }
    return 0;
 }
