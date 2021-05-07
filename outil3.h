@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#endif
+
 struct Reponse{
     char *indice;
     char *classement;
@@ -33,5 +35,4 @@ void afficherRep(struct Reponse r);
 void afficher(struct Reponse r, struct stat *s, char *rep[]);
 int cmdline(int nbr, char *args[], char *rep[]);
 void afficherStat(struct stat s, char *rep[]);
-#endif
 
