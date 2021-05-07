@@ -1,6 +1,6 @@
 [![tp2c](https://github.com/CyrineCheniti/inf3135-h2021/actions/workflows/tp2c.yml/badge.svg)](https://github.com/CyrineCheniti/inf3135-h2021/actions/workflows/tp2c.yml)
 [![tp2t](https://github.com/CyrineCheniti/inf3135-h2021/actions/workflows/tp2t.yml/badge.svg)](https://github.com/CyrineCheniti/inf3135-h2021/actions/workflows/tp2t.yml)
-# Travail pratique 1
+# Travail pratique 2
 
    ## Auteur
 
