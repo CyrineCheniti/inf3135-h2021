@@ -1,8 +1,8 @@
-/*
-* Vérifier si le caractère est un numéro.
-* @param c : le caractère.
-* @return : 1 si le caractère est un numéro et 0 sinon.
-*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+#include "outil3.h"
 
 int estNum(char c){
     if(c<='9' && c>='0')
@@ -11,11 +11,6 @@ int estNum(char c){
         return 0;
 }
 
-/*
-* Convertir une chaîne en float.
-* @param c : la chaîne.
-* @return : un float.
-*/
 
 float conv_float(const char *str)
 {
@@ -128,67 +123,75 @@ void afficherRep(struct Reponse r){
 }
  void afficher(struct Reponse r, struct stat *s, char *rep[]){
     
-       if (!strcmp(rep[3], "N")){
           if (!strcmp(rep[0],"C-5")&&!strcmp(rep[1], "DIV-5")){
-          afficherRep(r);
-          s->cont++;
+              if (!strcmp(rep[3], "N")){
+              afficherRep(r);}
+              s->cont++;
          }
-         else if(!strcmp(r.classement,"C-1")){
+         else if(!strcmp(rep[0],"C-1")){
             if(!strcmp(r.classement,"C-1")){
-                        afficherRep(r);
+			if (!strcmp(rep[3], "N")){
+                        afficherRep(r);	}
+			r.aff=1;	
                         s->cont++;
-                        r.aff=1;
                      }
           }
         else if (!strcmp(rep[0], "C-2")){
               if(!strcmp(r.classement,"C-2")){
-                        afficherRep(r);
+                        if (!strcmp(rep[3], "N")){
+			afficherRep(r);}
+			r.aff=1;
                         s->cont++;
-                        r.aff=2;
                      }
         }
         else if (!strcmp(rep[0], "C-3")){
            if(!strcmp(r.classement,"C-3")){ 
-                       afficherRep(r);
+                     if (!strcmp(rep[3], "N")){
+			  afficherRep(r);
+				 }r.aff=1;
                        s->cont++;
-                       r.aff=0;
                      }
         }
         else if (!strcmp(rep[0], "C-4")){
-          if(!strcmp(r.classement,"C-4")){ 
+          if(!strcmp(r.classement,"C-4")){
+			if (!strcmp(rep[3], "N")){ 
                        afficherRep(r);
+			}r.aff=1;
                        s->cont++;
-                       r.aff=0;
                      }
         }        
         else if (!strcmp(rep[0], "C-0")){
-             afficherRep(r); s->cont++;        
+             	if (!strcmp(rep[3], "N")){
+		afficherRep(r);}r.aff=1; s->cont++;        
        }
        
        if (!strcmp(rep[1],"DIV-1")){
          if(!strcmp(r.classe_dividend,"DIV-1")&& r.aff==0){
-             
-                        afficherRep(r);
+             		if (!strcmp(rep[3], "N")){
+                        afficherRep(r);}
                         s->cont++;
                      }
-        if (!strcmp(rep[1],"DIV-2")){
+       }
+       else if (!strcmp(rep[1],"DIV-2")){
            if(!strcmp(r.classe_dividend,"DIV-2")&& r.aff==0){ 
-                        afficherRep(r);
+                        if (!strcmp(rep[3], "N")){
+			                     afficherRep(r);}
                         s->cont++;
                      }
         }
-        if (!strcmp(rep[1],"DIV-3")){
+        else if (!strcmp(rep[1],"DIV-3")){
           if(!strcmp(r.classe_dividend,"DIV-3")&& r.aff==0){ 
-                       afficherRep(r);
+                       if (!strcmp(rep[3], "N")){
+		                    	afficherRep(r);}
                        s->cont++;
                      }
         }
         if (!strcmp(rep[1],"DIV-0")){
-           if (r.aff==0) {afficherRep(r); s->cont++;}        
+           if (r.aff==0) {if (!strcmp(rep[3], "N")){afficherRep(r);} s->cont++;}        
        }
       
-}
-}
+
+
 }
 int cmdline(int nbr, char *args[], char *rep[]){
     
@@ -224,9 +227,10 @@ int cmdline(int nbr, char *args[], char *rep[]){
         if (strcmp(args[i], "-t")==0){
                 rep[3]="A";
         }
-     }
+    }     
     return 1;
 }
+
 void afficherStat(struct stat s, char *rep[]){
       printf("information de classement des indices\n");
        printf(" C-1 : %d\n",s.c1);

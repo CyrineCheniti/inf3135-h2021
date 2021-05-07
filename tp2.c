@@ -1,6 +1,10 @@
 #include "outil3.h"
 #include "outil3.c"
- 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
 int main(int nbr, char *args[]) {
    
    char indice[200];
