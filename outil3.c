@@ -187,7 +187,8 @@ void afficherRep(struct Reponse r){
                      }
         }
         if (!strcmp(rep[1],"DIV-0")){
-           if (r.aff==0) {if (!strcmp(rep[3], "N")){afficherRep(r);} s->cont++;}        
+           if (r.aff==0)
+	 {if (!strcmp(rep[3], "N")){afficherRep(r);} s->cont++;}        
        }
       
 
@@ -242,7 +243,8 @@ void afficherStat(struct stat s, char *rep[]){
        printf(" D-2 : %d\n",s.d2);
        printf(" D-3 : %d\n",s.d3);  
        if (!strcmp(rep[2],"A")){
-         printf("\ninformation sommaire\n  nbr indice : %d sur %d\n",s.cont,s.contTotal);
+         
+	printf("\ninformation sommaire\n  nbr indice : %d sur %d\n",s.cont,s.contTotal);
       }
 
 }

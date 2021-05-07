@@ -17,5 +17,5 @@ jobs:
     - uses: actions/checkout@v2
     - name: execution  
       run: |
-        make
+        make tp2s
         cat data/indices.txt | ./tp2s > execution.md
