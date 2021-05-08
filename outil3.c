@@ -77,10 +77,10 @@ struct Reponse recuperer_json(char indice[]){
    r.classe_dividend="DIV-3";
  }
  // Evite l'arrondi
- float divi=floorf(tady * 100) / 100;
- r.dividend=divi;
- float pm= floorf(rmp * 100) / 100;
- r.prix_marche=pm;
+// float divi=floorf(tady * 100) / 100;
+ r.dividend=tady;
+ //float pm= floorf(rmp * 100) / 100;
+ r.prix_marche=rmp;
  r.aff=0;
  free(tab_rep);
  return r;
@@ -114,8 +114,8 @@ void afficherRep(struct Reponse r){
                           printf ("%s\t",r.indice);
                           printf ("%s\t",r.classement);
                           printf ("%s\t",r.classe_dividend);
-                          printf ("%7.2f\t",r.prix_marche);
-                          printf ("%.2f%%\n",r.dividend); 
+                          printf ("%7.2f\t",(int)(r.prix_marche*100)/100.0);
+                          printf ("%.2f%%\n",(int)(r.dividend*100)/100.0); 
 }
  void afficher(struct Reponse r, struct stat *s, char *rep[]){
     
