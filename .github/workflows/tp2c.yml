@@ -19,6 +19,7 @@ jobs:
     - name: compilation
       run: |
         make tp2s > complitation.md
+	cat compilation.md
   
 # Upload a single file artifact
     - name: 'Upload artifact'
