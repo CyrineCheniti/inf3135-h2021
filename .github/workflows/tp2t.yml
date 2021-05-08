@@ -23,7 +23,7 @@ jobs:
 
 # Upload a single file artifact
     - name: 'Upload artifact'
-      uses: ./
+      uses: actions/upload-artifact@v2
       with:
         name: 'Execution'
         path: execution.md
