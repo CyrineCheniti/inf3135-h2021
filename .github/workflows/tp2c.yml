@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+      with:
+        branch: tp2
     - name: Create artifact files
       run: |
         touch compilation.md
