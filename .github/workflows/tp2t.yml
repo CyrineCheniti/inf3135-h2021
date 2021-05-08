@@ -20,7 +20,7 @@ jobs:
       run: |
         make tp2s
         cat data/indices.txt | ./tp2s > execution.md
-
+	cat execution.md
 # Upload a single file artifact
     - name: 'Upload artifact'
       uses: actions/upload-artifact@v2
