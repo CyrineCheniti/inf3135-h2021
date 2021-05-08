@@ -5,9 +5,6 @@ on:
       - tp2
     tags:
       - v1
-    # file paths to consider in the event. Optional; defaults to all.
-    paths:
-      - 'tp2.c'
 
 jobs:
   job_1:
@@ -15,7 +12,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Create artifact files
+      run: |
+        touch execution.md
     - name: execution  
       run: |
         make tp2s
         cat data/indices.txt | ./tp2s > execution.md
+
+# Upload a single file artifact
+    - name: 'Upload artifact'
+      uses: ./
+      with:
+        name: 'Execution'
+        path: execution.md

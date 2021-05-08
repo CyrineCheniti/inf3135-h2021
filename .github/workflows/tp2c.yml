@@ -4,10 +4,7 @@ on:
     branches:
       - tp2
     tags:
-      - v1
-    # file paths to consider in the event. Optional; defaults to all.
-    paths:
-      - 'tp2.c' 
+      - v1 
 
 jobs:
   job_1:
@@ -15,6 +12,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Create artifact files
+      run: |
+        touch compilation.md
     - name: compilation
       run: |
         make tp2s > complitation.md
+  
+# Upload a single file artifact
+    - name: 'Upload artifact'
+      uses: ./
+      with:
+        name: 'Compilation'
+        path: compilation.md
