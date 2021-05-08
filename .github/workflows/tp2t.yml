@@ -13,8 +13,6 @@ jobs:
     steps:
     name: checkout
     - uses: actions/checkout@v2
-     with:
-	branch: tp2
     - name: Create artifact files
       run: |
         touch execution.md
