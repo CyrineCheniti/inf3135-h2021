@@ -85,6 +85,7 @@ struct Reponse recuperer_json(char indice[]){
  free(tab_rep);
  return r;
 }
+
 void statistiques (struct Reponse r, struct stat *s, char *rep[]){
 if(!strcmp(r.classement, "C-1"))
    s->c1++; 

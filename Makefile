@@ -1,11 +1,14 @@
-CFLAG= -Wall -Werror=vla -pedantic -std=c11 -Werror -O2
+CFLAG= -Wall -Werror=vla -pedantic -std=c11 
 
 
-tp2: tp2.c outil3.c 
-	gcc -shared $(CFLAG) -Wl,-rpath=./liboutil3.so -o $@ -fPIC $^
+default: tp2
+	./tp2
+
+tp2: tp2.c 
+	gcc -shared $(CFLAG) -Wl,-rpath=./liboutil3.so -o $@ -fPIC $^ -lm 
 
 tp2s: tp2.c 
-	gcc -static $(CFLAG) -o $@ -fPIC $^ 
+	gcc -static $(CFLAG) -o $@ -fPIC  $^ -lm 
 
 librairie: tp2.c
 	gcc -c -fPIC tp2.c -o tp2.o  
