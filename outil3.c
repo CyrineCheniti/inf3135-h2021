@@ -76,10 +76,7 @@ struct Reponse recuperer_json(char indice[]){
  } else {
    r.classe_dividend="DIV-3";
  }
- // Evite l'arrondi
-// float divi=floorf(tady * 100) / 100;
  r.dividend=tady;
- //float pm= floorf(rmp * 100) / 100;
  r.prix_marche=rmp;
  r.aff=0;
  free(tab_rep);
