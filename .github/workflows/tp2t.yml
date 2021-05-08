@@ -11,7 +11,7 @@ jobs:
     name: job principale
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout
       with:
 	branch: tp2
     - name: Create artifact files
