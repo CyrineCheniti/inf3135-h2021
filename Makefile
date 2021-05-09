@@ -17,7 +17,7 @@ librairie: tp2.c
 .PHONY: clean indices quote
 
 clean:
-	@rm -f *.o *.so *.a tp2s tp2
+	@rm -f tp2.o tp2s.o liboutil3.so liboutil3.a tp2s tp2
 
 indices:
 	@mkdir -p ./data
