@@ -18,6 +18,8 @@ jobs:
         touch compilation.md
     - name: compilation
       run: |
+        make indices
+        make quote
         make tp2s > compilation.md
   
     - name: push
