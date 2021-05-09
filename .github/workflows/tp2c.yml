@@ -15,10 +15,6 @@ jobs:
     - name: checkout
       uses: actions/checkout@v2
 
-    - name: Create artifact files
-      run: |
-        touch compilation.md
-
     - name: compilation
       run: |
         make indices
