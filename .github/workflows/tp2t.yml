@@ -11,11 +11,14 @@ jobs:
     name: job principale
     runs-on: ubuntu-latest
     steps:
+
     - name: checkout
       uses: actions/checkout@v2
+
     - name: Create artifact files
       run: |
         touch execution.md
+
     - name: execution  
       run: |
         make indices
