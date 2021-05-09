@@ -11,17 +11,14 @@ jobs:
     name: job principale
     runs-on: ubuntu-latest
     steps:
-
     - name: checkout
       uses: actions/checkout@v2
-
     - name: execution  
       run: |
         make indices
         make quote
         make tp2s
         cat data/indices.txt | ./tp2s > execution.md
-
     - name: push
       uses: actions-x/commit@v1
       with:

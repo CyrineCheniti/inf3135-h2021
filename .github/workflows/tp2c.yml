@@ -11,16 +11,13 @@ jobs:
     name: job principale
     runs-on: ubuntu-latest
     steps:
-
     - name: checkout
       uses: actions/checkout@v2
-
     - name: compilation
       run: |
         make indices
         make quote
         make tp2s > compilation.md
-  
     - name: push
       uses: actions-x/commit@v1
       with:
