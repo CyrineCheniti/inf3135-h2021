@@ -20,9 +20,10 @@ jobs:
       run: |
         make tp2s
         cat data/indices.txt | ./tp2s > execution.md
-# Upload a single file artifact
-    - name: 'Upload artifact'
-      uses: actions/upload-artifact@v2
+
+    - name: push
+      uses: actions-x/commit@v1
       with:
-        name: 'Execution'
-        path: execution.md
+        name: GitHub Actions Autocommitter
+        branch: tp2
+        files: execution.md

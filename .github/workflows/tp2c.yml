@@ -20,9 +20,9 @@ jobs:
       run: |
         make tp2s > compilation.md
   
-# Upload a single file artifact
-    - name: 'Upload artifact'
-      uses:  actions/upload-artifact@v2
+    - name: push
+      uses: actions-x/commit@v1
       with:
-        name: 'Compilation'
-        path: compilation.md
+        name: GitHub Actions Autocommitter
+        branch: tp2
+        files: compilation.md
