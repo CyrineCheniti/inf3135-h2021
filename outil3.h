@@ -13,6 +13,7 @@ struct Reponse{
  float dividend;
  int aff;
 };
+
 struct stat{
  int c1;
  int c2;
@@ -24,6 +25,7 @@ struct stat{
  int cont;
  int contTotal;
 };
+
 int estNum(char c);
 float conv_float(const char *str);
 struct Reponse recuperer_json(char indice[]);
