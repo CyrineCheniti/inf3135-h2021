@@ -12,26 +12,27 @@
 
    ## Votre fierté
    ```
-   Pour faire fonctionner mon projet il faut taper les commandes make indices, make quote, make tp2s et puis 
+   Pour faire fonctionner mon projet il faut taper les commandes make indices, make quote, make et puis 
    vous faites entrer les indices.  
    ```
 
    ## Difficultés rencontrées
    
    ```
-   - L'éxecutable shared je n'ai pas arrivé à le faire fonctionner.
+   - L'éxecutable shared ça m'a pris beaucoup de temps afin de le faire fonctionner mais finalement j'ai arrivée.
    ```
 
    ## Listes Exigences
    
    - [x] getQuote.sh fonctionne 
-   - [x] Makefile fonctionne sauf pour l'éxecutable shared
+   - [x] Makefile fonctionne 
    - [x] tp2.c compile et retourne le bon résultat 
    - [x] .gitignore fonctionne
    - [x] tp2c.yml et tp2t.yml fonctionnent
+   - [x] badges yaml fonctionne
 
    ## Statut et auto-évaluation
 
    ```
-   Le projet est complété sans l'éxecutable shared.
+   Le projet est complété.
    ```

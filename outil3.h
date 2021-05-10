@@ -1,9 +1,9 @@
-#ifndef _OUTIL3_H_ 
+#ifndef _OUTIL3_H_
 #define _OUTIL3_H_
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#endif
+#include <math.h>
 
 struct Reponse{
  char *indice;
@@ -27,9 +27,8 @@ struct stat{
 int estNum(char c);
 float conv_float(const char *str);
 struct Reponse recuperer_json(char indice[]);
-void statistiques (struct Reponse r, struct stat *s, char *rep[]);
 void afficherRep(struct Reponse r);
 void afficher(struct Reponse r, struct stat *s, char *rep[]);
 int cmdline(int nbr, char *args[], char *rep[]);
 void afficherStat(struct stat s, char *rep[]);
-
+#endif
