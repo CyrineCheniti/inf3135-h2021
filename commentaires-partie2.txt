@@ -1,45 +1,52 @@
 
-*** compilation ***
- 
 **** differences ****
-1
-1
-2
+10
+20
+5
+8
  
 **** script de correction ****
 V=`date` ; echo -e "**** debut de la correction : $V ****" >> ../inf3135-h2021/commentaires.txt ; echo $? >> resultat.guy
-V=`grep 'unistd' *.[ch] | wc -l` ; test $V == 0 ; echo $? >> resultat.guy
-test -f tp1.c -a -f .gitignore -a -f cp.txt -a -f Makefile ; echo $? >> resultat.guy
-test -f getQuote.sh ; echo $? >> resultat.guy
-V=`test -f README.md && grep -e '|.Identit' -e '|.CP' README.md | wc -l` ; test $V -eq 2 ; echo $? >> resultat.guy
-rm -f tp1.o tp1 tp2 tp2.o malib.o ; rm -fr ./data/ ; echo $? >> resultat.guy
-timeout 10 make && test -f tp1 ; echo $? >> resultat.guy
+V=`grep 'unistd' *.[ch] | wc -l` ; test $V -eq 0 ; echo $? >> resultat.guy
+V=`grep 'int cmd(' outil3.[ch] | wc -l` ; test $V == 2 ; echo $? >> resultat.guy
+V=`grep '_OUTIL3_H_' outil3.[h] | wc -l` ; test $V -ge 1 ; echo $? >> resultat.guy
+V=`cat tp2.c | wc -l` ; W=`cat outil3.c | wc -l` ; test $V -lt 36 -a $W -lt 251 ; echo $? >> resultat.guy
+V=`grep 't' tp2.c | wc -l` ; test $V == 0 ; echo $? >> resultat.guy
+V=`grep -e 'cd' -e 'mv' -e '..' Makefile | wc -l`; test $V -eq 0 ; echo $? >> resultat.guy
+test -f tp2.c -a -f .gitignore -a -f cp.txt -a -f Makefile -a -f outil3.h -a -f outil3.c ; echo $? >> resultat.guy
+test -s ./.github/workflows/tp2c.yml -a -s ./.github/workflows/tp2t.yml ; echo $? >> resultat.guy
+V=`test -f README.md && grep -e 'badge.svg' -e 'tp2t.yml' -e 'tp2c.yml' README.md | wc -l` ; test $V -ge 2 ; echo $? >> resultat.guy
+test -f compilation.md -a -s execution.md ; echo $? >> resultat.guy
+rm -f *.o tp[12] tp2s ; rm -fr ./data/ ; echo $? >> resultat.guy
 timeout 10 make quote && test -f ./data/indices.txt ; echo $? >> resultat.guy
-timeout 10 make indices && test -f ./data/indices.txt ; echo $? >> resultat.guy
-timeout 10 make clean ; make clean ; echo $? >> resultat.guy
-timeout 10 test ! -f tp1.o && test ! -f tp1 && test ! -d data ; echo $? >> resultat.guy
-timeout 10 gcc -Wall -pedantic -Werror=vla -std=c11 -O2 -o tp1 tp1.c &> compilation.guy ; test ! -s compilation.guy ; echo $? >> resultat.guy
-timeout 10 make ; make tp1 ; echo $? >> resultat.guy
-mkdir -p ./data/ ; cp ${HOME}/cours/inf3135/h2021/indices-tp1.txt ./data/indices.txt ; echo $? >> resultat.guy
+rm -f *.o tp[12] tp2s ; rm -fr ./data/ ; echo $? >> resultat.guy
+timeout 10 make && test -f liboutil3.so -a -f liboutil3.a ; echo $? >> resultat.guy
+rm -f *.o tp[12] tp2s ; rm -fr ./data/ ; echo $? >> resultat.guy
+timeout 10 make clean ; make clean ; make tp2 && test -f tp2 ; echo $? >> resultat.guy
+rm -f *.o tp[12] tp2s ; rm -fr ./data/ ; echo $? >> resultat.guy
+timeout 10 make clean ; make clean ; make tp2s && test -f tp2s ; echo $? >> resultat.guy
+mkdir -p ./data/ ; cp ${HOME}/cours/inf3135/h2021/indices-tp2.txt ./data/indices.txt ; echo $? >> resultat.guy
 timeout 90 bash getQuote.sh ; echo $? >> resultat.guy
-c=`ls -1 ./data/*.json | wc -l` ; test $c -eq 22 ; echo $? >> resultat.guy
-unzip -o ${HOME}/cours/inf3135/h2021/tp1-data.zip -d ./data ; echo $? >> resultat.guy
-timeout 10 head -n 5 ./data/indices.txt | ./tp1 > tp1-01.etu 2> /dev/null ; echo $? >> resultat.guy
-diff -y -i -B -E -w -b --suppress-common-lines tp1-01.etu ${HOME}/cours/inf3135/h2021/out-tp1-01.txt | grep '^' | wc -l > tp1-diff.etu ; echo $? >> resultat.guy
-V=`head -n 1 tp1-diff.etu | tail -n 1` ; test $V -eq 0 ; echo $? >> resultat.guy
-timeout 10 tail -n 5 ./data/indices.txt | ./tp1 > tp1-02.etu 2> /dev/null ; echo $? >> resultat.guy
-diff -y -i -B -E -w -b --suppress-common-lines tp1-02.etu ${HOME}/cours/inf3135/h2021/out-tp1-02.txt | grep '^' | wc -l >> tp1-diff.etu ; echo $? >> resultat.guy
-V=`head -n 2 tp1-diff.etu | tail -n 1` ; test $V -le 2 ; echo $? >> resultat.guy
-timeout 10 head -n 10 ./data/indices.txt | tail -n 5 | ./tp1 > tp1-03.etu 2> /dev/null ; echo $? >> resultat.guy
-diff -y -i -B -E -w -b --suppress-common-lines tp1-03.etu ${HOME}/cours/inf3135/h2021/out-tp1-03.txt | grep '^' | wc -l >> tp1-diff.etu ; echo $? >> resultat.guy
-V=`head -n 3 tp1-diff.etu | tail -n 1` ; test $V -eq 0 ; echo $? >> resultat.guy
-file tp1.c | grep 'C source, ASCII text' ; V1=$? ; file tp1.c | grep 'C source, ASCII text,' ; V2=$? ; test $V1 == 0 -a $V2 == 1 ; echo $? >> resultat.guy
-test -s ./.github/workflows/tp1.yml ; echo $? >> resultat.guy
-V=`grep 'data/' .gitignore | wc -l` ; test $V == 1 ; echo $? >> resultat.guy
-echo "*.guy" >> .gitignore ; date > version.txt ; sort -u -o .gitignore .gitignore ; git add version.txt .gitignore tp1-0*.etu && git commit -m "bravo, consulter les .etu si present..." && git push ; echo $? >> resultat.guy
+c=`ls -1 ./data/*.json | wc -l` ; test $c -eq 29 ; echo $? >> resultat.guy
+unzip -o ${HOME}/cours/inf3135/h2021/tp2-data.zip -d ./data ; echo $? >> resultat.guy
+make tp2 ; make tp2s ; if [ -s tp2s ] ; then cp -f tp2s run.me ; else cp -f tp2 run.me ; fi ; echo $? >> resultat.guy
+V=`du -k tp2 | cut -f 1` ; W=`du -k tp2s | cut -f 1` ; test $V -lt $W ; echo $? >> resultat.guy
+timeout 10 cat ./data/indices.txt | ./run.me -t -s -d 0 -c 0 > tp2-01.etu 2> /dev/null ; echo $? >> resultat.guy
+diff -y -i -B -E -w -b --suppress-common-lines tp2-01.etu ${HOME}/cours/inf3135/h2021/out-tp2-01.txt | grep '^' | wc -l > tp2-diff.etu ; echo $? >> resultat.guy
+V=`head -n 1 tp2-diff.etu | tail -n 1` ; test $V -le 2 ; echo $? >> resultat.guy
+timeout 10 cat ./data/indices.txt | ./run.me -s > tp2-02.etu 2> /dev/null ; echo $? >> resultat.guy
+diff -y -i -B -E -w -b --suppress-common-lines tp2-02.etu ${HOME}/cours/inf3135/h2021/out-tp2-02.txt | grep '^' | wc -l >> tp2-diff.etu ; echo $? >> resultat.guy
+V=`head -n 2 tp2-diff.etu | tail -n 1` ; test $V -le 2 ; echo $? >> resultat.guy
+timeout 10 cat ./data/indices.txt | ./run.me -c 1 -s > tp2-03.etu 2> /dev/null ; echo $? >> resultat.guy
+diff -y -i -B -E -w -b --suppress-common-lines tp2-03.etu ${HOME}/cours/inf3135/h2021/out-tp2-03.txt | grep '^' | wc -l >> tp2-diff.etu ; echo $? >> resultat.guy
+V=`head -n 3 tp2-diff.etu | tail -n 1` ; test $V -le 2 ; echo $? >> resultat.guy
+timeout 10 cat ./data/indices.txt | ./run.me -d 3 -s > tp2-04.etu 2> /dev/null ; echo $? >> resultat.guy
+diff -y -i -B -E -w -b --suppress-common-lines tp2-04.etu ${HOME}/cours/inf3135/h2021/out-tp2-04.txt | grep '^' | wc -l >> tp2-diff.etu ; echo $? >> resultat.guy
+V=`head -n 4 tp2-diff.etu | tail -n 1` ; test $V -le 2 ; echo $? >> resultat.guy
+timeout 90 cat ./data/indices.txt | valgrind --leak-check=summary --show-error-list=no ./run.me -t 2>&1 | grep 'All heap blocks were freed -- no leaks are possible' ; echo $? >> resultat.guy
+echo "*.guy" >> .gitignore ; date > version.txt ; sort -u -o .gitignore .gitignore ; git add version.txt .gitignore tp2-0*.etu && git commit -m "merci pour vos resultats." && git push ; echo $? >> resultat.guy
 cp note.guy resultats-des-tests.txt ; git add resultats-des-tests.txt ; git commit -m "les test" ; git push ; echo $? >> resultat.guy
-echo -e "*** compilation ***" >> ../inf3135-h2021/commentaires-partie2.txt ; cat compilation*.guy >> ../inf3135-h2021/commentaires-partie2.txt ; echo " " >> ../inf3135-h2021/commentaires-partie2.txt ; echo $? >> resultat.guy
-echo -e "**** differences ****" >> ../inf3135-h2021/commentaires-partie2.txt ; cat tp1-diff.etu >> ../inf3135-h2021/commentaires-partie2.txt ; echo " " >> ../inf3135-h2021/commentaires-partie2.txt ; echo $? >> resultat.guy
+echo -e "**** differences ****" >> ../inf3135-h2021/commentaires-partie2.txt ; cat tp2-diff.etu >> ../inf3135-h2021/commentaires-partie2.txt ; echo " " >> ../inf3135-h2021/commentaires-partie2.txt ; echo $? >> resultat.guy
 echo -e "**** script de correction ****" >> ../inf3135-h2021/commentaires-partie2.txt ; cat execution.guy >> ../inf3135-h2021/commentaires-partie2.txt ; echo " " >> ../inf3135-h2021/commentaires-partie2.txt ; echo $? >> resultat.guy
 echo -e "Correction fin." >> ../inf3135-h2021/commentaires-partie2.txt ; echo $? >> resultat.guy
  
