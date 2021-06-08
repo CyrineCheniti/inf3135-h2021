@@ -1,8 +1,8 @@
-K	C-2	DIV-1	   9.39	0.64%
-BCE	C-4	DIV-2	  59.11	5.72%
-BNS	C-4	DIV-2	  79.43	4.54%
-BLU	C-1	DIV-1	   4.67	0.00%
-BMO	C-4	DIV-2	 117.84	3.61%
+K	C-2	DIV-1	   9.66	0.93%
+BCE	C-4	DIV-2	  61.33	5.52%
+BNS	C-4	DIV-2	  81.15	4.43%
+BLU	C-1	DIV-1	   4.36	0.00%
+BMO	C-4	DIV-2	 128.55	3.31%
 
 information de classement des indices
  C-1 : 1
