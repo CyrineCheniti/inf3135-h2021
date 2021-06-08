@@ -1,12 +1,12 @@
+*.a
 data/
 # Fichiers C
 # Fichiers temporaires
 # Fichiers Vim
 *.guy
 *.o
-*.a
-*.so
 *.out
 # Répertoire à ignorer
+*.so
 *.swp
 *.tmp
